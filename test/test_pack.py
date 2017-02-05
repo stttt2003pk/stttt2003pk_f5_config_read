@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import json
+
 __author__ = 'stttt2003pk'
 
 import os, sys
@@ -19,6 +21,6 @@ config_file = os.path.abspath(os.path.join(cur_dir, 'bigip.conf'))
 f5config = F5SearchToolFunction.SearchF5()
 f5config.SetLtmConfigV11(config_file)
 
-print f5config.GetVsList
+print json.dumps(f5config.LtmPoolSet, sort_keys=False, indent=4, separators=(',', ': '))
 
 print F5CreateCommand.CreateLtmPoolV11()
